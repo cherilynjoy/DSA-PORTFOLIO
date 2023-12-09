@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class CaesarCipher {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the clear text: ");
+        String clearText = scanner.nextLine();
+        System.out.print("Enter the increment value (k): ");
+        int k = scanner.nextInt();
+        String cipherText = encrypt(clearText, k);
+        System.out.println("Cipher Text: " + cipherText);
+        scanner.close();
+    }
+    private static String encrypt(String clearText, int k) {
+        StringBuilder cipherText = new StringBuilder();
+        for (int i = 0; i < clearText.length(); i++) {
+            char currentChar = clearText.charAt(i);
+            if (Character.isLetter(currentChar)) {
+                char base = Character.isLowerCase(currentChar) ? 'a' : 'A';
+                char encryptedChar = (char) ((currentChar - base + k) % 26 + base);
+                cipherText.append(encryptedChar);
+            } else {
+                cipherText.append(currentChar);
+            }
+        }
+        return cipherText.toString();
+    }
+}
