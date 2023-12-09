@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class ListExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> myList = new ArrayList<>();
+
+        myList.add(1);
+        myList.add(2);
+        myList.add(3);
+
+        System.out.println("List Elements:");
+        for (int element : myList) {
+            System.out.print(element + " ");
+        }
+    }
+}
